@@ -120,7 +120,7 @@ The app will run at `http://localhost:5173`.
 
 ![mysql_items_table_data](/screenshots/mysql_items_table_data.png)
 
-![mysql_users_table_data](/screenshots/mysql_users_table_data.png)
+![mysql_users_table_data](/screenshots/mysql_users_Table_data.png)
 
 ## Environment Variables
 
