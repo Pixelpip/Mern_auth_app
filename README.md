@@ -108,18 +108,19 @@ The app will run at `http://localhost:5173`.
 
 ## Screenshots
 
+### 1)Dashboard
 ![Dashboard](/screenshots/dashboard.png)
-
+### 2)Editing items 
 ![dashboard_items_edit](/screenshots/item_edit.png)
-
+### 3)Deleting items
 ![dashboard_items_delete](/screenshots/items_delete.png)
-
+### 4)Mysql Database
 ![mysql_database](/screenshots/mysql_databases.png)
-
+### 5)Mysql Tables
 ![mysql_tables](/screenshots/mysql_tables.png)
-
+### 6)Mysql Items Table Data
 ![mysql_items_table_data](/screenshots/mysql_items_table_data.png)
-
+### 7)Mysql Users Table Data
 ![mysql_users_table_data](/screenshots/mysql_users_Table_data.png)
 
 ## Environment Variables
