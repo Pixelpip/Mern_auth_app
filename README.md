@@ -96,7 +96,7 @@ The app will run at `http://localhost:5173`.
 
 - User registration with password hashing (bcryptjs)
 - JWT-based authentication
-- Forgot/Reset password flow
+- Forgot/Reset password flow with nodemailer 
 - Dashboard with statistics cards
 - Full CRUD operations on items
 - Inline status update
@@ -105,6 +105,11 @@ The app will run at `http://localhost:5173`.
 - Form validation
 - Error and success messages
 - Responsive design
+
+## NodeMailer
+ - Google dosent allow to use our password directly in env file
+ - So we need to use app passwords to enable nodemailer in the application to send reset password email to user
+ - Check this link to generate app password : https://support.google.com/accounts/answer/185833?hl=en
 
 ## Screenshots
 

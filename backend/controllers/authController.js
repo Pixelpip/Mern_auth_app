@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const db = require('../config/db');
+const { sendResetEmail } = require('../config/mailer');
 
 
 const generateToken = (id) => {
@@ -144,13 +145,13 @@ const forgotPassword = async (req, res, next) => {
 
     
     const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
-    console.log('===========================================');
-    console.log('Password Reset Link (copy this):');
-    console.log(resetUrl);
-    console.log('===========================================');
+
+  
+    await sendResetEmail(email, resetUrl);
+    console.log(`Password reset email sent to ${email}`);
 
     res.json({
-      message: 'Password reset link has been sent to your email. Check the server console for the reset link.'
+      message: 'Password reset link has been sent to your email.'
     });
   } catch (error) {
     next(error);
