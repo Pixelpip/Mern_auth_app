@@ -1,8 +1,7 @@
-// controllers/itemController.js - CRUD logic for dashboard items
+
 const db = require('../config/db');
 
-// @desc    Get all items for logged-in user
-// @route   GET /api/items
+
 const getItems = async (req, res, next) => {
   try {
     const [items] = await db.query(
@@ -16,8 +15,6 @@ const getItems = async (req, res, next) => {
   }
 };
 
-// @desc    Get single item by ID
-// @route   GET /api/items/:id
 const getItem = async (req, res, next) => {
   try {
     const [items] = await db.query(
@@ -35,8 +32,6 @@ const getItem = async (req, res, next) => {
   }
 };
 
-// @desc    Create new item
-// @route   POST /api/items
 const createItem = async (req, res, next) => {
   try {
     const { title, description, status } = req.body;
@@ -53,7 +48,7 @@ const createItem = async (req, res, next) => {
       [req.user.id, title, description || null, itemStatus]
     );
 
-    // Fetch the created item
+ 
     const [items] = await db.query(
       'SELECT * FROM items WHERE id = ?',
       [result.insertId]
@@ -68,13 +63,12 @@ const createItem = async (req, res, next) => {
   }
 };
 
-// @desc    Update item
-// @route   PUT /api/items/:id
+
 const updateItem = async (req, res, next) => {
   try {
     const { title, description, status } = req.body;
 
-    // Check if item exists and belongs to user
+    
     const [existing] = await db.query(
       'SELECT * FROM items WHERE id = ? AND user_id = ?',
       [req.params.id, req.user.id]
@@ -96,7 +90,7 @@ const updateItem = async (req, res, next) => {
       [title, description || null, itemStatus, req.params.id, req.user.id]
     );
 
-    // Fetch updated item
+
     const [items] = await db.query(
       'SELECT * FROM items WHERE id = ?',
       [req.params.id]
@@ -111,11 +105,10 @@ const updateItem = async (req, res, next) => {
   }
 };
 
-// @desc    Delete item
-// @route   DELETE /api/items/:id
+
 const deleteItem = async (req, res, next) => {
   try {
-    // Check if item exists and belongs to user
+  
     const [existing] = await db.query(
       'SELECT * FROM items WHERE id = ? AND user_id = ?',
       [req.params.id, req.user.id]
@@ -136,8 +129,6 @@ const deleteItem = async (req, res, next) => {
   }
 };
 
-// @desc    Get dashboard statistics
-// @route   GET /api/stats
 const getStats = async (req, res, next) => {
   try {
     const [total] = await db.query(

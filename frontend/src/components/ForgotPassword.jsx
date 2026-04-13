@@ -30,25 +30,25 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6">Forgot Password</h1>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-2xl font-bold text-center mb-6 text-gray-100">Forgot Password</h1>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
+          <div className="bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-2 rounded mb-4">
             {error}
           </div>
         )}
 
         {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
+          <div className="bg-green-500/15 border border-green-500/30 text-green-300 px-4 py-2 rounded mb-4">
             {success}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-medium mb-1" htmlFor="email">
+            <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">
               Email
             </label>
             <input
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 bg-white/5 border border-white/15 rounded text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-500/60"
               placeholder="Enter your email"
             />
           </div>
@@ -64,14 +64,14 @@ const ForgotPassword = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-amber-600 text-white py-2 rounded hover:bg-amber-700 disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-amber-600 to-amber-700 text-white py-2 rounded hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 transition-all duration-200"
           >
             {loading ? 'Sending...' : 'Send Reset Link'}
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-600 mt-4">
-          <Link to="/login" className="text-teal-700 hover:underline">
+        <p className="text-center text-sm text-gray-400 mt-4">
+          <Link to="/login" className="text-teal-400 hover:text-teal-300 hover:underline">
             Back to Login
           </Link>
         </p>

@@ -122,20 +122,20 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-500 text-lg">Loading dashboard...</p>
+        <p className="text-gray-400 text-lg">Loading dashboard...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow px-4 py-3 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-gray-800">Dashboard</h1>
+    <div className="min-h-screen">
+      <nav className="bg-white/5 backdrop-blur-sm border-b border-white/10 px-4 py-3 flex items-center justify-between">
+        <h1 className="text-xl font-bold text-gray-100">Dashboard</h1>
         <div className="flex items-center gap-4">
-          <span className="text-gray-600 text-sm">Welcome, {user?.name}</span>
+          <span className="text-gray-400 text-sm">Welcome, {user?.name}</span>
           <button
             onClick={logout}
-            className="bg-orange-500 text-white px-4 py-1.5 rounded text-sm hover:bg-orange-600"
+            className="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-1.5 rounded text-sm hover:from-orange-500 hover:to-orange-600 transition-all duration-200"
           >
             Logout
           </button>
@@ -145,44 +145,44 @@ const Dashboard = () => {
       <div className="max-w-5xl mx-auto p-4">
         
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
+          <div className="bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-2 rounded mb-4">
             {error}
           </div>
         )}
         {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
+          <div className="bg-green-500/15 border border-green-500/30 text-green-300 px-4 py-2 rounded mb-4">
             {success}
           </div>
         )}
 
  
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white p-4 rounded shadow text-center">
-            <p className="text-2xl font-bold text-gray-800">{stats.total}</p>
-            <p className="text-gray-500 text-sm">Total Items</p>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center">
+            <p className="text-2xl font-bold text-gray-100">{stats.total}</p>
+            <p className="text-gray-400 text-sm">Total Items</p>
           </div>
-          <div className="bg-white p-4 rounded shadow text-center">
-            <p className="text-2xl font-bold text-green-600">{stats.active}</p>
-            <p className="text-gray-500 text-sm">Active</p>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center">
+            <p className="text-2xl font-bold text-green-400">{stats.active}</p>
+            <p className="text-gray-400 text-sm">Active</p>
           </div>
-          <div className="bg-white p-4 rounded shadow text-center">
-            <p className="text-2xl font-bold text-yellow-600">{stats.pending}</p>
-            <p className="text-gray-500 text-sm">Pending</p>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center">
+            <p className="text-2xl font-bold text-yellow-400">{stats.pending}</p>
+            <p className="text-gray-400 text-sm">Pending</p>
           </div>
-          <div className="bg-white p-4 rounded shadow text-center">
-            <p className="text-2xl font-bold text-blue-600">{stats.completed}</p>
-            <p className="text-gray-500 text-sm">Completed</p>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-lg text-center">
+            <p className="text-2xl font-bold text-blue-400">{stats.completed}</p>
+            <p className="text-gray-400 text-sm">Completed</p>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded shadow mb-6">
-          <h2 className="text-lg font-semibold mb-4">
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-lg mb-6">
+          <h2 className="text-lg font-semibold mb-4 text-gray-100">
             {editingId ? 'Edit Item' : 'Add New Item'}
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-1" htmlFor="title">
+                <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="title">
                   Title *
                 </label>
                 <input
@@ -191,12 +191,12 @@ const Dashboard = () => {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/15 rounded text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-500/60"
                   placeholder="Item title"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-1" htmlFor="description">
+                <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="description">
                   Description
                 </label>
                 <input
@@ -205,12 +205,12 @@ const Dashboard = () => {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/15 rounded text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-500/60"
                   placeholder="Item description"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 text-sm font-medium mb-1" htmlFor="status">
+                <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="status">
                   Status
                 </label>
                 <select
@@ -218,11 +218,11 @@ const Dashboard = () => {
                   name="status"
                   value={formData.status}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-white/5 border border-white/15 rounded text-gray-200 focus:outline-none focus:border-amber-500/60"
                 >
-                  <option value="active">Active</option>
-                  <option value="pending">Pending</option>
-                  <option value="completed">Completed</option>
+                  <option value="active" className="bg-gray-800">Active</option>
+                  <option value="pending" className="bg-gray-800">Pending</option>
+                  <option value="completed" className="bg-gray-800">Completed</option>
                 </select>
               </div>
             </div>
@@ -230,7 +230,7 @@ const Dashboard = () => {
               <button
                 type="submit"
                 disabled={formLoading}
-                className="bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 disabled:opacity-50"
+                className="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-6 py-2 rounded hover:from-amber-500 hover:to-amber-600 disabled:opacity-50 transition-all duration-200"
               >
                 {formLoading ? 'Saving...' : editingId ? 'Update Item' : 'Add Item'}
               </button>
@@ -238,7 +238,7 @@ const Dashboard = () => {
                 <button
                   type="button"
                   onClick={handleCancelEdit}
-                  className="bg-stone-400 text-white px-6 py-2 rounded hover:bg-stone-500"
+                  className="bg-white/10 border border-white/15 text-gray-300 px-6 py-2 rounded hover:bg-white/15 transition-all duration-200"
                 >
                   Cancel
                 </button>
@@ -248,27 +248,27 @@ const Dashboard = () => {
         </div>
 
         
-        <div className="bg-white rounded shadow">
-          <h2 className="text-lg font-semibold p-4 border-b">Your Items</h2>
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+          <h2 className="text-lg font-semibold p-4 border-b border-white/10 text-gray-100">Your Items</h2>
           {items.length === 0 ? (
             <p className="text-gray-500 text-center py-8">No items yet. Add your first item above!</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left">
-                <thead className="bg-gray-50">
+                <thead className="bg-white/5">
                   <tr>
-                    <th className="px-4 py-3 text-sm font-medium text-gray-600">Title</th>
-                    <th className="px-4 py-3 text-sm font-medium text-gray-600">Description</th>
-                    <th className="px-4 py-3 text-sm font-medium text-gray-600">Status</th>
-                    <th className="px-4 py-3 text-sm font-medium text-gray-600">Created</th>
-                    <th className="px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
+                    <th className="px-4 py-3 text-sm font-medium text-gray-400">Title</th>
+                    <th className="px-4 py-3 text-sm font-medium text-gray-400">Description</th>
+                    <th className="px-4 py-3 text-sm font-medium text-gray-400">Status</th>
+                    <th className="px-4 py-3 text-sm font-medium text-gray-400">Created</th>
+                    <th className="px-4 py-3 text-sm font-medium text-gray-400">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {items.map((item) => (
-                    <tr key={item.id} className="border-t hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm">{item.title}</td>
-                      <td className="px-4 py-3 text-sm text-gray-500">
+                    <tr key={item.id} className="border-t border-white/5 hover:bg-white/5 transition-colors duration-150">
+                      <td className="px-4 py-3 text-sm text-gray-200">{item.title}</td>
+                      <td className="px-4 py-3 text-sm text-gray-400">
                         {item.description || '-'}
                       </td>
                       <td className="px-4 py-3">
@@ -277,31 +277,31 @@ const Dashboard = () => {
                           onChange={(e) => handleStatusChange(item.id, e.target.value)}
                           className={`text-xs px-2 py-1 rounded border ${
                             item.status === 'active'
-                              ? 'bg-green-100 text-green-700 border-green-300'
+                              ? 'bg-green-500/15 text-green-300 border-green-500/30'
                               : item.status === 'pending'
-                              ? 'bg-yellow-100 text-yellow-700 border-yellow-300'
-                              : 'bg-blue-100 text-blue-700 border-blue-300'
+                              ? 'bg-yellow-500/15 text-yellow-300 border-yellow-500/30'
+                              : 'bg-blue-500/15 text-blue-300 border-blue-500/30'
                           }`}
                         >
-                          <option value="active">Active</option>
-                          <option value="pending">Pending</option>
-                          <option value="completed">Completed</option>
+                          <option value="active" className="bg-gray-800">Active</option>
+                          <option value="pending" className="bg-gray-800">Pending</option>
+                          <option value="completed" className="bg-gray-800">Completed</option>
                         </select>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-500">
+                      <td className="px-4 py-3 text-sm text-gray-400">
                         {new Date(item.created_at).toLocaleDateString()}
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex gap-2">
                           <button
                             onClick={() => handleEdit(item)}
-                            className="text-teal-600 hover:text-teal-800 text-sm"
+                            className="text-teal-400 hover:text-teal-300 text-sm transition-colors duration-150"
                           >
                             Edit
                           </button>
                           <button
                             onClick={() => setDeleteConfirm(item.id)}
-                            className="text-rose-500 hover:text-rose-700 text-sm"
+                            className="text-rose-400 hover:text-rose-300 text-sm transition-colors duration-150"
                           >
                             Delete
                           </button>
@@ -318,20 +318,20 @@ const Dashboard = () => {
 
   
       {deleteConfirm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg max-w-sm w-full mx-4">
-            <h3 className="text-lg font-semibold mb-2">Confirm Delete</h3>
-            <p className="text-gray-600 mb-4">Are you sure you want to delete this item? This action cannot be undone.</p>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-gray-900 border border-white/10 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+            <h3 className="text-lg font-semibold mb-2 text-gray-100">Confirm Delete</h3>
+            <p className="text-gray-400 mb-4">Are you sure you want to delete this item? This action cannot be undone.</p>
             <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setDeleteConfirm(null)}
-                className="bg-stone-400 text-white px-4 py-2 rounded hover:bg-stone-500"
+                className="bg-white/10 border border-white/15 text-gray-300 px-4 py-2 rounded hover:bg-white/15 transition-all duration-200"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleDelete(deleteConfirm)}
-                className="bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-700"
+                className="bg-gradient-to-r from-rose-600 to-rose-700 text-white px-4 py-2 rounded hover:from-rose-500 hover:to-rose-600 transition-all duration-200"
               >
                 Delete
               </button>
